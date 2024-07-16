@@ -197,6 +197,7 @@ rule webshell_PHP_ID_EviLTwiNMinishell {
                 5 of them
 }
 
+import "pe"
 rule webshell_PHP_GLOBAL_LAZY_rule_possible_webshell {
         meta:
                 description = "Lazy rule - Possible Webshell"
@@ -206,6 +207,7 @@ rule webshell_PHP_GLOBAL_LAZY_rule_possible_webshell {
         strings:
                 $h1 = "<?php" nocase fullword ascii
 		$h2 = "<?=" ascii
+
 		$s1 = "eval(htmlspecialchars_decode(urldecode(base64_decode(" ascii
                 $s2 = "eval(base64_decode(base64_decode(" ascii
 		$s3 = "eval(htmlspecialchars_decode(gzinflate(base64_decode(" ascii
@@ -216,8 +218,19 @@ rule webshell_PHP_GLOBAL_LAZY_rule_possible_webshell {
 		$s8 = "eval(eval(eval(" ascii
 		$s9 = "eval(htmlspecialchars_decode(base64_decode(" ascii
 		$s10 = "base64_decode(urldecode(base64_decode(" ascii
+		$s11 = "XJung2722 SHELL" ascii
+		$s12 = "CrystalShell" ascii
+		$s13 = "Cylul007 Webshell" ascii
+		$s14 = /Evi[Ll] Twi[Nn] (Mini)?[sS]hell/ ascii
+		$s15 = "?>fierzashell<?" ascii
+		$s16 = /echo \"Backconnect source: https:\/\/github\.com\/MadExploits\/Reverse\-Shell\-Payload\\n\";/ ascii
+		$s17 = /\/\/ PastiGanteng V[0-9\.]+ Shell/ ascii
         condition:
-                ($h1 or $h2) and (1 of ($s*) )
+//                pe.is_pe and
+//	        filename matches /(php|phtml|phar)/i) and
+		filesize < 5000000 and
+		($h1 or $h2) and
+		(1 of ($s*) )
 }
 
 
@@ -355,5 +368,3 @@ rule webshell_PHP_possible_webshell_eval_base64 {
         condition:
                 all of them
 }
-
-

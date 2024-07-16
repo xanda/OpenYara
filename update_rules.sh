@@ -1,12 +1,16 @@
 #
 #  SPDX-License-Identifier: 0BSD
-# 
+#
 #  Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted.
 #
 #  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE.
 #
 
 #!/bin/bash
+
+//Updating OpenYara
+wget https://raw.githubusercontent.com/xanda/OpenYara/main/rules/OpenYara.yar
+mv OpenYara.yar rules/OpenYara.yar
 
 // Updating Yara Forge collection
 wget https://github.com/YARAHQ/yara-forge/releases/latest/download/yara-forge-rules-full.zip

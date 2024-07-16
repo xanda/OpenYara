@@ -1,7 +1,3 @@
-Here's a README file for your OpenYara project:
-
----
-
 # OpenYara
 
 Welcome to OpenYara, yet another YARA rule collection. This project was developed as part of an engagement with my clients, and we believe it could benefit others as well. OpenYara is released under the 0BSD license, making it very permissive for any type of use.
@@ -39,7 +35,3 @@ Update the YARA rule collection with one command:
 ## License
 
 This project is licensed under the 0BSD License.
-
----
-
-Feel free to modify or expand the README as needed!

@@ -16,7 +16,7 @@ rules_file=$1
 path_to_scan=$2
 
 # Execute yara and save the output to a variable
-yara_output=$(yara "$rules_file" "$path_to_scan")
+yara_output=$(yara -r "$rules_file" "$path_to_scan")
 
 # Create a temporary file to store unique file paths
 temp_file=$(mktemp)

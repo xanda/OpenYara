@@ -16,7 +16,7 @@ set "rules_file=%~1"
 set "path_to_scan=%~2"
 
 REM Execute yara and save the output to a variable
-for /f "delims=" %%i in ('yara "%rules_file%" "%path_to_scan%"') do set "yara_output=%%i"
+for /f "delims=" %%i in ('yara -r "%rules_file%" "%path_to_scan%"') do set "yara_output=%%i"
 
 REM Create a temporary file to store unique file paths
 set "temp_file=%TEMP%\tempfile.txt"
